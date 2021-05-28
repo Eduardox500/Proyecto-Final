@@ -2,27 +2,27 @@ const express = require('express');
 const router = express.Router();
 const usersDb = require('../models/Modelo')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
         res.render('pages/Index',)
 });
 
-router.get('/Nosotros', (req, res) => {
+router.get('/Nosotros', async (req, res) => {
     res.render('pages/Sobre nosotros')
 });
 
-router.get('/Productos', (req, res) => {
+router.get('/Productos', async (req, res) => {
     res.render('pages/Productos')
 });
 
-router.get('/Contactos', (req, res) => {
+router.get('/Contactos', async (req, res) => {
     res.render('pages/Contactos')
 });
 
-router.get('/Cuenta', (req, res) => {
+router.get('/Cuenta', async (req, res) => {
     res.render('pages/Cuenta')
 });
 
-router.post('/add', (req, res) => {
+router.post('/add', async (req, res) => {
         try {
             usersDb.find({$or:[{User: req.body.User}, {Mail: req.body.Mail}]}, (err, results) => {
                 if (!results.length > 0) {
@@ -52,7 +52,7 @@ router.post('/add', (req, res) => {
         }
     });
 
-router.get('/Select', (req, res) => {
+router.get('/Select', async (req, res) => {
     try {
         usersDb.find({}, (err, results) => {
             res.render('pages/Select', {
@@ -67,7 +67,7 @@ router.get('/Select', (req, res) => {
     }
 });
 
-router.post('/form', (req, res) => {
+router.post('/form', async (req, res) => {
     try {
         usersDb.find({
             $or: [
