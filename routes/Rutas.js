@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/Nosotros', async (req, res) => {
-    res.render('pages/Sobre nosotros')
+    res.render('pages/SobreNosotros')
 });
 
 router.get('/Productos', async (req, res) => {
