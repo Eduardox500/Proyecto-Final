@@ -77,7 +77,7 @@ router.post('/form', async (req, res) => {
         }, (err, results) => {
             if (results.length > 0) {
                     console.log("Logueado correctamente");
-                    res.render('pages/')
+                    res.render('pages/Index')
                 }
                 else{
                     console.log("Usuario o contraseña incorreta");
